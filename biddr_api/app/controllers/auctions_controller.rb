@@ -3,7 +3,7 @@ class AuctionsController < ApplicationController
     before_action :authenticate_user!
 
     def create 
-        action = Auction.new auction_params
+        auction = Auction.new auction_params
         auction.user_id = current_user.id
         if auction.save
             render(json: {id: auction.id})
