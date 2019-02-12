@@ -1,16 +1,64 @@
 import React, { Component } from "react";
 import "../styles/App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HomePage from "./HomePage";
+import NavBar from "./NavBar";
+import SignInPage from "./SignInPage";
+import { User, Session } from "../requests";
 
 class App extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            currentUser: null,
+            loading: true
+        };
+        this.getCurrentUser = this.getCurrentUser.bind(this);
+        this.destroySession = this.destroySession.bind(this);
     }
+
+    destroySession() {
+        this.setState({
+          currentUser: null
+        });
+    
+        Session.destroy();
+    }
+
+    getCurrentUser() {
+        User.current().then(data => {
+          const { current_user: currentUser } = data;
+    
+          if (currentUser) {
+            this.setState({ currentUser });
+          }
+          this.setState({ loading: false });
+        });
+    }
+
+    componentDidMount() {
+        this.getCurrentUser();
+    }
+
     render(){
+        const { currentUser, loading } = this.state;
         return(
-            <main>
-                <HomePage/>
-            </main>
+            <BrowserRouter>
+                <div>
+                    <NavBar currentUser={currentUser} onSignOut={this.destroySession}/>
+                    {loading ? (
+                    <main></main>
+                    ) : (
+                    <Switch>
+                        <Route path="/" exact component={HomePage} />
+                        <Route path="/sign_in" render={routeProps => (
+                            <SignInPage {...routeProps} onSignIn={this.getCurrentUser} />)}
+                        />
+
+                    </Switch> 
+                    )}
+                </div>
+            </BrowserRouter>
         )
     }
 }
