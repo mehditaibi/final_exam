@@ -12,7 +12,8 @@ const NavBar = props => {
     return(
         <nav>
             <NavLink exact to="/"> Home </NavLink>
-            <NavLink exact to="/"> Auctions </NavLink>
+            <NavLink exact to="/auctions"> Auctions </NavLink>
+            <NavLink exact to="/auctions/new"> New Auction </NavLink>
             {currentUser ? (
             <>
             <span>💲{currentUser.full_name}💲</span>

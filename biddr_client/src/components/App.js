@@ -5,6 +5,9 @@ import HomePage from "./HomePage";
 import NavBar from "./NavBar";
 import SignInPage from "./SignInPage";
 import { User, Session } from "../requests";
+import AuctionIndexPage from "./AuctionIndexPage";
+import AuctionShowPage from "./AuctionShowPage";
+import AuctionNewPage from "./AuctionNewPage";
 
 class App extends Component {
     constructor(props){
@@ -50,11 +53,13 @@ class App extends Component {
                     <main></main>
                     ) : (
                     <Switch>
-                        <Route path="/" exact component={HomePage} />
+                        <Route path="/auctions/new" exact component={AuctionNewPage} />
+                        <Route path="/auctions/:id" exact component={AuctionShowPage} />
                         <Route path="/sign_in" render={routeProps => (
                             <SignInPage {...routeProps} onSignIn={this.getCurrentUser} />)}
                         />
-
+                        <Route path="/auctions" exact component={AuctionIndexPage} />
+                        <Route path="/" exact component={HomePage} />
                     </Switch> 
                     )}
                 </div>
