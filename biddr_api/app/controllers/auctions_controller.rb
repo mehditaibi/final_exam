@@ -1,10 +1,10 @@
 class AuctionsController < ApplicationController
 
-    before_action :authenticate_user!
+    before_action :authenticate_user!, only: [:create]
 
     def create 
         auction = Auction.new auction_params
-        auction.user_id = current_user.id
+        auction.user = current_user
         if auction.save
             render(json: {id: auction.id})
         else

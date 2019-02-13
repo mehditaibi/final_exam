@@ -4,10 +4,11 @@ class AuctionSerializer < ActiveModel::Serializer
     :title,
     :description,
     :ends_at,
-    :reserve_price
+    :reserve_price,
+    :created_at
   )
 
   belongs_to(:user, key: :owner) 
   has_many(:bids)
-  
+
 end

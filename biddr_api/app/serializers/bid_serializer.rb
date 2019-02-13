@@ -2,6 +2,7 @@ class BidSerializer < ActiveModel::Serializer
   attributes(
     :id,
     :price,
+    :auction_id,
     :created_at
   )
 
