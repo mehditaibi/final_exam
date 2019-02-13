@@ -8,6 +8,8 @@ import { User, Session } from "../requests";
 import AuctionIndexPage from "./AuctionIndexPage";
 import AuctionShowPage from "./AuctionShowPage";
 import AuctionNewPage from "./AuctionNewPage";
+import AuthRoute from "./AuthRoute";
+
 
 class App extends Component {
     constructor(props){
@@ -31,7 +33,6 @@ class App extends Component {
     getCurrentUser() {
         User.current().then(data => {
           const { current_user: currentUser } = data;
-    
           if (currentUser) {
             this.setState({ currentUser });
           }
@@ -53,7 +54,11 @@ class App extends Component {
                     <main></main>
                     ) : (
                     <Switch>
-                        <Route path="/auctions/new" exact component={AuctionNewPage} />
+                        <AuthRoute
+                        isAllowed={currentUser}
+                        path="/auctions/new"
+                        component={AuctionNewPage}
+                        />
                         <Route path="/auctions/:id" exact component={AuctionShowPage} />
                         <Route path="/sign_in" render={routeProps => (
                             <SignInPage {...routeProps} onSignIn={this.getCurrentUser} />)}
