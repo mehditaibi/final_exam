@@ -2,7 +2,7 @@ import React from "react";
 
 const AuctionDetails = props => {
   return (
-    <div>
+    <div style={{textAlign: 'center'}}>
       <h2>{props.title}</h2>
       <p>{props.description}</p>
       <p>{props.ends_at}</p>

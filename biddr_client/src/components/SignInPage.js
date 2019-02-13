@@ -37,27 +37,27 @@ class SignInPage extends Component {
     const { errors } = this.state;
 
     return (
-      <main>
-        <h1>Sign In</h1>
-        <form onSubmit={this.createSession}>
-          {errors.length > 0 ? (
-            <div className="FormErrors">
-              {errors.map(e => e.message).join(", ")}
-            </div>
-          ) : null}
-          <div>
-            <label htmlFor="email">Email</label> <br />
-            <input type="email" name="email" id="email" />
-          </div>
-
-          <div>
-            <label htmlFor="password">Password</label> <br />
-            <input type="password" name="password" id="password" />
-          </div>
-
-          <input type="submit" value="Sign In" />
-        </form>
-      </main>
+        <main style={{textAlign: 'center'}}>
+            <h1>Sign In</h1>
+            <form onSubmit={this.createSession}>
+                {errors.length > 0 ? (
+                <div className="FormErrors">
+                    {errors.map(e => e.message).join(", ")}
+                </div>
+                ) : null}
+                <div>
+                <label htmlFor="email">Email</label> <br />
+                <input type="email" name="email" id="email" />
+                </div>
+                <br/>
+                <div>
+                    <label htmlFor="password">Password</label> <br />
+                    <input type="password" name="password" id="password" />
+                </div>
+                <br/>
+                <input type="submit" value="Sign In" />
+            </form>
+        </main>
     );
   }
 }

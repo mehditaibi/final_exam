@@ -16,19 +16,21 @@ const NewBidForm = props => {
   };
 
   return (
-    <form className="BidForm" onSubmit={handleSubmit}>
+    <div style={{textAlign: 'center'}}>
+        <form className="BidForm" onSubmit={handleSubmit}>
 
-      <div>
-        <label htmlFor="price">Price</label> <br />
-        <FormErrors noField forField={"price"} errors={errors} />
-        <input name="price" id="price" />
-      </div>
+        <div>
+            <label htmlFor="price">Price</label> <br />
+            <FormErrors noField forField={"price"} errors={errors} />
+            <input name="price" id="price" />
+        </div>
 
-      <div>
-        <input type="submit" value="Submit" />
-      </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
 
-    </form>
+        </form>
+    </div>
   );
 };
 

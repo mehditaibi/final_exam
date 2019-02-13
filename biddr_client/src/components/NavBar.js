@@ -16,7 +16,7 @@ const NavBar = props => {
             <NavLink exact to="/auctions/new"> New Auction </NavLink>
             {currentUser ? (
             <>
-            <span>💲{currentUser.full_name}💲</span>
+            <NavLink exact to="#not-used"><span>{currentUser.full_name} </span></NavLink>
             <a href="#not-used" onClick={handleSignOutClick}>
             Sign Out
             </a>

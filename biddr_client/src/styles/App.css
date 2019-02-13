@@ -1,0 +1,47 @@
+main {
+    padding: 20px;
+}
+
+nav {
+    background-color: gold;
+    color: whitesmoke;
+  
+    display: flex;
+}
+
+nav > * {
+    padding: 20px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a.active {
+    background-color: black;
+    color: white;
+}
+
+.CurrentDateTime {
+    margin-left: auto;
+}
+
+.FormErrors {
+    padding: 5px;
+    border: 1px solid lightpink;
+    background-color: pink;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+  }
+
+ul li {
+    width:20em;
+    float:left;
+}

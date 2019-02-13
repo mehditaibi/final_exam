@@ -19,35 +19,40 @@ const NewAuctionForm = props => {
   };
 
   return (
-    <form className="AuctionForm" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Title</label> <br />
-        <FormErrors noField forField={"title"} errors={errors} />
-        <input name="title" id="title" />
-      </div>
-
-      <div>
-        <label htmlFor="description">Description</label> <br />
-        <FormErrors noField forField={"description"} errors={errors} />
-        <textarea name="description" id="description" cols="60" rows="4" />
-      </div>
-
-      <div>
-        <label htmlFor="endsAt">Ends At</label> <br />
-        <FormErrors noField forField={"endsAt"} errors={errors} />
-        <textarea name="endsAt" id="endsAt" cols="60" rows="4" />
-      </div>
-
-      <div>
-        <label htmlFor="reservePrice">Reserve Price</label> <br />
-        <FormErrors noField forField={"reservePrice"} errors={errors} />
-        <textarea name="reservePrice" id="reservePrice" cols="60" rows="4" />
-      </div>
-      
-      <div>
-        <input type="submit" value="Submit" />
-      </div>
-    </form>
+    <div>
+        <h1 style={{textAlign: 'center'}}>New Auction</h1>
+        <div style={{textAlign: 'center'}} >
+            <form className="AuctionForm" onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="title">Title</label> <br />
+                <FormErrors noField forField={"title"} errors={errors} />
+                <input name="title" id="title" />
+            </div>
+            <br/>
+            <div>
+                <label htmlFor="description">Description</label> <br />
+                <FormErrors noField forField={"description"} errors={errors} />
+                <textarea name="description" id="description" cols="60" rows="4" />
+            </div>
+            <br/>
+            <div>
+                <label htmlFor="endsAt">Ends At</label> <br />
+                <FormErrors noField forField={"endsAt"} errors={errors} />
+                <input name="endsAt" id="endsAt"/>
+            </div>
+            <br/>
+            <div>
+                <label htmlFor="reservePrice">Reserve Price</label> <br />
+                <FormErrors noField forField={"reservePrice"} errors={errors} />
+                <input name="reservePrice" id="reservePrice"/>
+            </div>
+            <br/>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+            </form>
+        </div>
+    </div>
   );
 };
 

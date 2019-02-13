@@ -29,15 +29,17 @@ class AuctionIndexPage extends Component {
     }
     
     return (
-      <main>
-        <h1>Auctions</h1>
-        <ul style={{ padding: 0, listStyle: "none" }}>
-          {this.state.auctions.map(auction => (
-            <li key={auction.id}>
-              <Link to={`/auctions/${auction.id}`}>{auction.title}</Link>{" "}
-            </li>
-          ))}
-        </ul>
+      <main >
+        <h1 style={{textAlign: 'center'}}> Current Auctions</h1>
+        <div className='container'>
+            <ul style={{ padding: 0, listStyle: "none" }}>
+            {this.state.auctions.map(auction => (
+                <li key={auction.id}>
+                <Link to={`/auctions/${auction.id}`}>{auction.title}</Link>{" "}
+                </li>
+            ))}
+            </ul>
+        </div>
       </main>
     );
   }
